@@ -6,6 +6,9 @@ RUN apt-get update && apt-get install -y \
     curl \
     git \
     && rm -rf /var/lib/apt/lists/*
+RUN pecl install xdebug-2.7.0RC2 \
+    pecl install apcu \
+    && docker-php-ext-enable xdebug apcu
 RUN docker-php-ext-install iconv \
         mysqli \
         zip \
